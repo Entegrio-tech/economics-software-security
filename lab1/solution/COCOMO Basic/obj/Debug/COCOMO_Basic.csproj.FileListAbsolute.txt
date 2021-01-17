@@ -1,0 +1,10 @@
+C:\Users\Администратор\Documents\GitHub\economics-software-security\lab1\solution\COCOMO Basic\bin\Debug\COCOMO Basic.exe.config
+C:\Users\Администратор\Documents\GitHub\economics-software-security\lab1\solution\COCOMO Basic\bin\Debug\COCOMO Basic.exe
+C:\Users\Администратор\Documents\GitHub\economics-software-security\lab1\solution\COCOMO Basic\bin\Debug\COCOMO Basic.pdb
+C:\Users\Администратор\Documents\GitHub\economics-software-security\lab1\solution\COCOMO Basic\obj\Debug\COCOMO_Basic.csprojAssemblyReference.cache
+C:\Users\Администратор\Documents\GitHub\economics-software-security\lab1\solution\COCOMO Basic\obj\Debug\COCOMO_Basic.FormBasicModel.resources
+C:\Users\Администратор\Documents\GitHub\economics-software-security\lab1\solution\COCOMO Basic\obj\Debug\COCOMO_Basic.Properties.Resources.resources
+C:\Users\Администратор\Documents\GitHub\economics-software-security\lab1\solution\COCOMO Basic\obj\Debug\COCOMO_Basic.csproj.GenerateResource.cache
+C:\Users\Администратор\Documents\GitHub\economics-software-security\lab1\solution\COCOMO Basic\obj\Debug\COCOMO_Basic.csproj.CoreCompileInputs.cache
+C:\Users\Администратор\Documents\GitHub\economics-software-security\lab1\solution\COCOMO Basic\obj\Debug\COCOMO Basic.exe
+C:\Users\Администратор\Documents\GitHub\economics-software-security\lab1\solution\COCOMO Basic\obj\Debug\COCOMO Basic.pdb
