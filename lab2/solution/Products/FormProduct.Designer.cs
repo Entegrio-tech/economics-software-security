@@ -105,6 +105,7 @@ namespace Products
             this.cmbGenre.Name = "cmbGenre";
             this.cmbGenre.Size = new System.Drawing.Size(121, 21);
             this.cmbGenre.TabIndex = 7;
+            this.cmbGenre.SelectedIndexChanged += new System.EventHandler(this.cmbGenre_SelectedIndexChanged);
             // 
             // btnFirst
             // 
@@ -154,6 +155,7 @@ namespace Products
             this.btnEdit.TabIndex = 12;
             this.btnEdit.Text = "Изменить";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnAdd
             // 
@@ -163,6 +165,7 @@ namespace Products
             this.btnAdd.TabIndex = 13;
             this.btnAdd.Text = "Добавить";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnDelete
             // 
@@ -328,6 +331,7 @@ namespace Products
             this.Name = "FormProduct";
             this.Text = "Товар";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormProduct_Paint);
+            this.Load += new System.EventHandler(this.FormProduct_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
