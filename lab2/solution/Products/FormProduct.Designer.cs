@@ -76,7 +76,6 @@ namespace Products
             this.tbPrice.Name = "tbPrice";
             this.tbPrice.Size = new System.Drawing.Size(79, 20);
             this.tbPrice.TabIndex = 4;
-            this.tbPrice.TextChanged += new System.EventHandler(this.tbPrice_TextChanged);
             // 
             // tbGenre
             // 
@@ -171,6 +170,7 @@ namespace Products
             this.btnExit.TabIndex = 15;
             this.btnExit.Text = "Выход";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // lbProducts
             // 
@@ -251,7 +251,6 @@ namespace Products
             this.lblPrice.Size = new System.Drawing.Size(45, 15);
             this.lblPrice.TabIndex = 22;
             this.lblPrice.Text = "Цена:";
-            this.lblPrice.Click += new System.EventHandler(this.lblPrice_Click);
             // 
             // lblSurcharge
             // 
