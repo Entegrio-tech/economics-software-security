@@ -1,0 +1,10 @@
+E:\git\economics-software-security\lab2\solution\Products\bin\Debug\Products.exe.config
+E:\git\economics-software-security\lab2\solution\Products\bin\Debug\Products.exe
+E:\git\economics-software-security\lab2\solution\Products\bin\Debug\Products.pdb
+E:\git\economics-software-security\lab2\solution\Products\obj\Debug\Products.csprojAssemblyReference.cache
+E:\git\economics-software-security\lab2\solution\Products\obj\Debug\Products.FormProduct.resources
+E:\git\economics-software-security\lab2\solution\Products\obj\Debug\Products.Properties.Resources.resources
+E:\git\economics-software-security\lab2\solution\Products\obj\Debug\Products.csproj.GenerateResource.cache
+E:\git\economics-software-security\lab2\solution\Products\obj\Debug\Products.csproj.CoreCompileInputs.cache
+E:\git\economics-software-security\lab2\solution\Products\obj\Debug\Products.exe
+E:\git\economics-software-security\lab2\solution\Products\obj\Debug\Products.pdb
