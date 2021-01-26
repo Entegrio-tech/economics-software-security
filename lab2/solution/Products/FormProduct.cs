@@ -68,7 +68,6 @@ namespace Products
         private void Filling(string commandText)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            Console.WriteLine(connectionString);
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -99,6 +98,31 @@ namespace Products
         {
             string commandText = @"select Top 1 * from Games order by id desc";
             Filling(commandText);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (tbCipher.Text == "")
+            {
+                MessageBox.Show("Для удаления укажите шифр!");
+                return;
+            }
+            DialogResult dialogResult = MessageBox.Show($"Вы уверены, что желаете удалить товар с номером {tbCipher.Text}?",
+                "Предупреждение",
+                MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand thisCommand = connection.CreateCommand();
+                    thisCommand.CommandText = $@"DELETE FROM Games
+                                            WHERE Id = {int.Parse(tbCipher.Text)}";
+                    thisCommand.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
         }
     }
 }
