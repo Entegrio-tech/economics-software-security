@@ -100,6 +100,8 @@ namespace Products
             // 
             // cmbGenre
             // 
+            this.cmbGenre.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cmbGenre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGenre.FormattingEnabled = true;
             this.cmbGenre.Location = new System.Drawing.Point(440, 116);
             this.cmbGenre.Name = "cmbGenre";
@@ -159,6 +161,7 @@ namespace Products
             // 
             // btnAdd
             // 
+            this.btnAdd.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnAdd.Location = new System.Drawing.Point(370, 224);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
@@ -328,10 +331,11 @@ namespace Products
             this.Controls.Add(this.tbCipher);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormProduct";
             this.Text = "Товар";
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormProduct_Paint);
             this.Load += new System.EventHandler(this.FormProduct_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormProduct_Paint);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -66,7 +66,6 @@ namespace Products
 
         private void Filling(string commandText)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -115,7 +114,8 @@ namespace Products
             // Подтверждение удаления.
             DialogResult dialogResult = MessageBox.Show($"Вы уверены, что желаете удалить товар с номером {tbCipher.Text}?",
                 "Предупреждение",
-                MessageBoxButtons.YesNo);
+                MessageBoxButtons.YesNo, 
+                MessageBoxIcon.Warning);
             if (dialogResult == DialogResult.Yes)
             {
                 string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
@@ -126,38 +126,23 @@ namespace Products
                     thisCommand.CommandText = $@"DELETE FROM Games
                                             WHERE Id = {int.Parse(tbCipher.Text)}";
                     thisCommand.ExecuteNonQuery();
-                    connection.Close();
                 }
             }
+            btnFirst.PerformClick();
         }
 
         private void FormProduct_Load(object sender, EventArgs e)
         {
             System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
 
-            string sqlExpression = "SELECT Games.Id, Games.Name, GenreId, Genres.Name, Type, Quantity, Price, Allowance FROM Games, Genres WHERE Genres.Id = GenreId";
+            string sqlExpression = "SELECT Games.Id, Games.Name, GenreId, Genres.Name, Type, Quantity, Price, Allowance FROM Games, Genres WHERE Genres.Id = GenreId ORDER BY Id DESC";
             string sqlExpression2 = "SELECT * FROM Genres";
+            Filling(sqlExpression);
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                SqlCommand command = new SqlCommand(sqlExpression2, connection);
                 SqlDataReader reader = command.ExecuteReader();
-                reader.Read();
-                if (reader.HasRows) // если есть данные
-                {
-                    tbCipher.Text = reader.GetInt32(0).ToString();
-                    tbName.Text = reader.GetString(1);
-                    tbGenre.Text = reader.GetInt32(2).ToString();
-                    cmbGenre.Text = reader.GetString(3);
-                    tbType.Text = reader.GetString(4);
-                    tblNumber.Text = reader.GetInt32(5).ToString();
-                    tbPrice.Text = reader.GetDecimal(6).ToString();
-                    tbSurcharge.Text = reader.GetInt32(7).ToString();
-                }
-                reader.Close();
-
-                command = new SqlCommand(sqlExpression2, connection);
-                reader = command.ExecuteReader();
                 if (reader.HasRows) // если есть данные
                 {
                     while (reader.Read()) // построчно считываем данные
@@ -166,6 +151,7 @@ namespace Products
                     }
                 }
                 reader.Close();
+                cmbGenre.SelectedIndex = Convert.ToInt32(tbGenre.Text) - 1;
             }
         }
 
@@ -197,14 +183,21 @@ namespace Products
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            DialogResult dialogResult = MessageBox.Show($"Вы уверены, что желаете добавить товар с новым номером?",
+                "Предупреждение",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Yes)
             {
-                connection.Open();
-                string sqlExpression = $"INSERT INTO Games (Name, GenreId, Type, Quantity, Price, Allowance) VALUES ('{tbName.Text}', {tbGenre.Text}, '{tbType.Text}', {tblNumber.Text}, {tbPrice.Text}, {tbSurcharge.Text})";
-                SqlCommand command = new SqlCommand(sqlExpression, connection);
-                if (command.ExecuteNonQuery() > 0)
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    MessageBox.Show("Товар успешно добавлен", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    connection.Open();
+                    string sqlExpression = $"INSERT INTO Games (Name, GenreId, Type, Quantity, Price, Allowance) VALUES ('{tbName.Text}', {tbGenre.Text}, '{tbType.Text}', {tblNumber.Text}, {tbPrice.Text}, {tbSurcharge.Text})";
+                    SqlCommand command = new SqlCommand(sqlExpression, connection);
+                    if (command.ExecuteNonQuery() > 0)
+                    {
+                        MessageBox.Show("Товар успешно добавлен", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
         }
@@ -213,7 +206,7 @@ namespace Products
         {
             string commandText = $@"SELECT * 
                                    FROM Games
-                                   WHERE Id = {int.Parse(tbCipher.Text) + 1}";
+                                   WHERE Id > {int.Parse(tbCipher.Text)} ORDER BY Id DESC";
             Filling(commandText);
         }
 
@@ -221,7 +214,7 @@ namespace Products
         {
             string commandText = $@"SELECT * 
                                    FROM Games
-                                   WHERE Id = {int.Parse(tbCipher.Text) - 1}";
+                                   WHERE Id < {int.Parse(tbCipher.Text)} ORDER BY Id";
             Filling(commandText);
         }
 
