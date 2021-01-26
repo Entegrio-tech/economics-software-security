@@ -71,6 +71,7 @@ namespace Products
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(259, 20);
             this.tbName.TabIndex = 2;
+            this.tbName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
             // 
             // tbPrice
             // 
@@ -123,6 +124,7 @@ namespace Products
             this.btnBefore.TabIndex = 9;
             this.btnBefore.Text = "Пред.";
             this.btnBefore.UseVisualStyleBackColor = true;
+            this.btnBefore.Click += new System.EventHandler(this.btnBefore_Click);
             // 
             // btnNext
             // 
@@ -132,6 +134,7 @@ namespace Products
             this.btnNext.TabIndex = 10;
             this.btnNext.Text = "След.";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnLast
             // 

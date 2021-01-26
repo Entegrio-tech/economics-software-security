@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
-using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Products
@@ -19,7 +13,7 @@ namespace Products
         {
             InitializeComponent();
         }
-
+        // Событие для начертания линий на форме.
         private void FormProduct_Paint(object sender, PaintEventArgs e)
         {
             Pen pen = new Pen(Color.Maroon, 1);
@@ -28,12 +22,12 @@ namespace Products
             e.Graphics.DrawLine(pen, 15, 215, 580, 215);
             e.Graphics.DrawLine(pen, 15, 257, 580, 257);
         }
-
+        // Выход из приложения.
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
+        // Проверка ввода целых чисел.
         private void tbCipher_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsDigit(e.KeyChar) && (e.KeyChar != 0x8))
@@ -42,6 +36,7 @@ namespace Products
             }
         }
 
+        // Проверка ввода чисел с плавающей запятой.
         private void tbSurcharge_KeyPress(object sender, KeyPressEventArgs e)
         {
             //ввод только цифр с одной запятой
@@ -74,6 +69,7 @@ namespace Products
                 SqlCommand thisCommand = connection.CreateCommand();
                 thisCommand.CommandText = commandText;
                 SqlDataReader thisReader = thisCommand.ExecuteReader();
+                // Заполнение ТБ на форме. 
                 while (thisReader.Read())
                 {
                     tbCipher.Text = thisReader["Id"].ToString();
@@ -90,13 +86,18 @@ namespace Products
         }
         private void btnFirst_Click(object sender, EventArgs e)
         {
-            string commandText = @"select Top 1 * from Games order by id";
+            string commandText = @"SELECT Top 1 * 
+                                   FROM Games
+                                   ORDER BY id";
             Filling(commandText);
         }
 
         private void btnLast_Click(object sender, EventArgs e)
         {
-            string commandText = @"select Top 1 * from Games order by id desc";
+            // Сортируем по убыванию.
+            string commandText = @"SELECT Top 1 *
+                                   FROM Games
+                                   ORDER BY Id DESC";
             Filling(commandText);
         }
 
@@ -107,6 +108,7 @@ namespace Products
                 MessageBox.Show("Для удаления укажите шифр!");
                 return;
             }
+            // Подтверждение удаления.
             DialogResult dialogResult = MessageBox.Show($"Вы уверены, что желаете удалить товар с номером {tbCipher.Text}?",
                 "Предупреждение",
                 MessageBoxButtons.YesNo);
@@ -122,6 +124,31 @@ namespace Products
                     thisCommand.ExecuteNonQuery();
                     connection.Close();
                 }
+            }
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            string commandText = $@"SELECT * 
+                                   FROM Games
+                                   WHERE Id = {int.Parse(tbCipher.Text) + 1}";
+            Filling(commandText);
+        }
+
+        private void btnBefore_Click(object sender, EventArgs e)
+        {
+            string commandText = $@"SELECT * 
+                                   FROM Games
+                                   WHERE Id = {int.Parse(tbCipher.Text) - 1}";
+            Filling(commandText);
+        }
+
+        // Защита от SQL инъекции.
+        private void tbName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar.ToString() == "'")
+            {
+                e.Handled = true;
             }
         }
     }
