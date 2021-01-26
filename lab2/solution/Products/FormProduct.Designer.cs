@@ -283,6 +283,7 @@ namespace Products
             this.tbType.Name = "tbType";
             this.tbType.Size = new System.Drawing.Size(62, 20);
             this.tbType.TabIndex = 24;
+            this.tbType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
             // 
             // tblNumber
             // 
