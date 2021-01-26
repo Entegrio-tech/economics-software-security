@@ -113,6 +113,7 @@ namespace Products
             this.btnFirst.TabIndex = 8;
             this.btnFirst.Text = "Первая";
             this.btnFirst.UseVisualStyleBackColor = true;
+            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
             // 
             // btnBefore
             // 
@@ -140,6 +141,7 @@ namespace Products
             this.btnLast.TabIndex = 11;
             this.btnLast.Text = "Посл.";
             this.btnLast.UseVisualStyleBackColor = true;
+            this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
             // 
             // btnEdit
             // 

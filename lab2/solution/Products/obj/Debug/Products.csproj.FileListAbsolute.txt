@@ -8,3 +8,12 @@ E:\git\economics-software-security\lab2\solution\Products\obj\Debug\Products.csp
 E:\git\economics-software-security\lab2\solution\Products\obj\Debug\Products.csproj.CoreCompileInputs.cache
 E:\git\economics-software-security\lab2\solution\Products\obj\Debug\Products.exe
 E:\git\economics-software-security\lab2\solution\Products\obj\Debug\Products.pdb
+E:\git\economics-software-security\lab2\solution\Products\bin\Debug\System.Configuration.ConfigurationManager.dll
+E:\git\economics-software-security\lab2\solution\Products\bin\Debug\System.Security.AccessControl.dll
+E:\git\economics-software-security\lab2\solution\Products\bin\Debug\System.Security.Permissions.dll
+E:\git\economics-software-security\lab2\solution\Products\bin\Debug\System.Security.Principal.Windows.dll
+E:\git\economics-software-security\lab2\solution\Products\bin\Debug\System.Configuration.ConfigurationManager.xml
+E:\git\economics-software-security\lab2\solution\Products\bin\Debug\System.Security.AccessControl.xml
+E:\git\economics-software-security\lab2\solution\Products\bin\Debug\System.Security.Permissions.xml
+E:\git\economics-software-security\lab2\solution\Products\bin\Debug\System.Security.Principal.Windows.xml
+E:\git\economics-software-security\lab2\solution\Products\obj\Debug\Products.csproj.CopyComplete
