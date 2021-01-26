@@ -17,6 +17,10 @@ namespace Products
             InitializeComponent();
         }
 
+        private void OnlyNumb()
+        { 
+        
+        }
         private void FormProduct_Paint(object sender, PaintEventArgs e)
         {
             Pen pen = new Pen(Color.Maroon, 1);
@@ -29,6 +33,37 @@ namespace Products
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void tbCipher_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && (e.KeyChar != 0x8))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbSurcharge_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //ввод только цифр с одной запятой
+            if ((e.KeyChar == ','))
+            {
+                TextBox txt = (TextBox)sender;
+                if (txt.Text.Contains(","))
+                {
+                    e.Handled = true;
+                }
+                return;
+            }
+
+            if (!(Char.IsDigit(e.KeyChar)))
+            {
+                if ((e.KeyChar != (char)Keys.Back))
+                {
+                    e.Handled = true;
+                }
+            }
+
         }
     }
 }

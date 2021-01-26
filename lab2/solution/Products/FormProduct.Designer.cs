@@ -62,10 +62,12 @@ namespace Products
             this.tbCipher.Name = "tbCipher";
             this.tbCipher.Size = new System.Drawing.Size(41, 20);
             this.tbCipher.TabIndex = 0;
+            this.tbCipher.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCipher_KeyPress);
             // 
             // tbName
             // 
             this.tbName.Location = new System.Drawing.Point(104, 117);
+            this.tbName.MaxLength = 50;
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(259, 20);
             this.tbName.TabIndex = 2;
@@ -76,13 +78,16 @@ namespace Products
             this.tbPrice.Name = "tbPrice";
             this.tbPrice.Size = new System.Drawing.Size(79, 20);
             this.tbPrice.TabIndex = 4;
+            this.tbPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSurcharge_KeyPress);
             // 
             // tbGenre
             // 
             this.tbGenre.Location = new System.Drawing.Point(383, 117);
+            this.tbGenre.MaxLength = 50;
             this.tbGenre.Name = "tbGenre";
             this.tbGenre.Size = new System.Drawing.Size(38, 20);
             this.tbGenre.TabIndex = 5;
+            this.tbGenre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCipher_KeyPress);
             // 
             // tbSurcharge
             // 
@@ -90,6 +95,7 @@ namespace Products
             this.tbSurcharge.Name = "tbSurcharge";
             this.tbSurcharge.Size = new System.Drawing.Size(65, 20);
             this.tbSurcharge.TabIndex = 6;
+            this.tbSurcharge.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSurcharge_KeyPress);
             // 
             // cmbGenre
             // 
@@ -267,6 +273,7 @@ namespace Products
             // tbType
             // 
             this.tbType.Location = new System.Drawing.Point(44, 165);
+            this.tbType.MaxLength = 50;
             this.tbType.Name = "tbType";
             this.tbType.Size = new System.Drawing.Size(62, 20);
             this.tbType.TabIndex = 24;
@@ -277,6 +284,7 @@ namespace Products
             this.tblNumber.Name = "tblNumber";
             this.tblNumber.Size = new System.Drawing.Size(57, 20);
             this.tblNumber.TabIndex = 25;
+            this.tblNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCipher_KeyPress);
             // 
             // FormProduct
             // 
