@@ -86,6 +86,7 @@ namespace Products
             this.tbGenre.Location = new System.Drawing.Point(383, 117);
             this.tbGenre.MaxLength = 50;
             this.tbGenre.Name = "tbGenre";
+            this.tbGenre.ReadOnly = true;
             this.tbGenre.Size = new System.Drawing.Size(38, 20);
             this.tbGenre.TabIndex = 5;
             this.tbGenre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCipher_KeyPress);
